@@ -1,0 +1,545 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Moderne Radiologie in Wolfsburg | Diagnostik, Prävention & Vertrauen</title>
+  <meta name="description" content="Moderne Radiologie als unverzichtbarer Bestandteil der Medizin: High-End Bildgebung, Früherkennung, Patientenkomfort und Qualität im Radiologie Zentrum in Wolfsburg." />
+
+  <style>
+    :root{
+      /* Medical + Trust palette */
+      --bg:#061018;           /* deep teal-navy */
+      --bg2:#071a22;          /* darker teal */
+      --panel:#0b2230;        /* card */
+      --panel2:#0e2a3a;       /* card alt */
+      --text:#eaf6ff;         /* near-white */
+      --muted:#b7d1df;        /* soft */
+      --line:rgba(234,246,255,.12);
+
+      --primary:#20c997;      /* teal/green trust */
+      --primary2:#2dd4bf;     /* aqua */
+      --accent:#60a5fa;       /* soft blue */
+      --warn:#fbbf24;         /* warm highlight */
+      --shadow: 0 18px 60px rgba(0,0,0,.55);
+      --radius: 18px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      background:
+        radial-gradient(900px 520px at 10% 10%, rgba(32,201,151,.18), transparent 60%),
+        radial-gradient(800px 420px at 90% 20%, rgba(96,165,250,.16), transparent 55%),
+        radial-gradient(650px 420px at 60% 95%, rgba(45,212,191,.14), transparent 55%),
+        linear-gradient(180deg, #040c12 0%, var(--bg) 48%, #040c12 100%);
+      line-height:1.75;
+      overflow-x:hidden;
+    }
+
+    a{color:var(--primary2); text-decoration:none}
+    a:hover{text-decoration:underline}
+    ::selection{background: rgba(45,212,191,.25);}
+
+    .wrap{
+      width:min(1100px, 92vw);
+      margin:0 auto;
+      padding:28px 0 70px;
+      position:relative;
+    }
+
+    .topbar{
+      height:2px;
+      background: linear-gradient(90deg, transparent, rgba(45,212,191,.9), rgba(96,165,250,.8), transparent);
+      opacity:.95;
+      margin:0 0 18px;
+    }
+
+    header.hero{
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      background: linear-gradient(180deg, rgba(11,34,48,.90), rgba(11,34,48,.62));
+      box-shadow:var(--shadow);
+      padding:26px 22px 20px;
+      overflow:hidden;
+      position:relative;
+    }
+
+    header.hero::before{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      background:
+        radial-gradient(420px 220px at 15% 25%, rgba(45,212,191,.22), transparent 60%),
+        radial-gradient(520px 260px at 85% 35%, rgba(96,165,250,.16), transparent 62%),
+        linear-gradient(135deg, rgba(32,201,151,.10), transparent 45%);
+      pointer-events:none;
+    }
+
+    .hero-inner{position:relative; z-index:1}
+
+    .kicker{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+      margin-bottom:10px;
+    }
+
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:7px 12px;
+      border-radius:999px;
+      border:1px solid rgba(45,212,191,.35);
+      background: rgba(45,212,191,.08);
+      color:var(--text);
+      font-weight:650;
+      font-size:13px;
+      letter-spacing:.2px;
+      backdrop-filter: blur(6px);
+    }
+    .badge .dot{
+      width:8px;height:8px;border-radius:99px;
+      background: var(--primary2);
+      box-shadow: 0 0 14px rgba(45,212,191,.75);
+    }
+
+    .badge.alt{
+      border-color: rgba(96,165,250,.35);
+      background: rgba(96,165,250,.08);
+    }
+    .badge.alt .dot{
+      background: var(--accent);
+      box-shadow: 0 0 14px rgba(96,165,250,.65);
+    }
+
+    h1{
+      margin:8px 0 10px;
+      font-size: clamp(26px, 3.1vw, 40px);
+      line-height:1.15;
+      letter-spacing:-.6px;
+      text-shadow: 0 0 22px rgba(45,212,191,.10);
+    }
+
+    .sub{
+      margin:0;
+      color:var(--muted);
+      font-size:15.5px;
+      max-width: 82ch;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:16px;
+      margin-top:16px;
+    }
+    @media (min-width: 940px){
+      .grid{
+        grid-template-columns: 1.35fr .65fr;
+        align-items:start;
+      }
+    }
+
+    main.article{
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      background: linear-gradient(180deg, rgba(14,42,58,.82), rgba(11,34,48,.70));
+      box-shadow:var(--shadow);
+      padding:18px 18px 10px;
+      position:relative;
+      overflow:hidden;
+    }
+    main.article::after{
+      content:"";
+      position:absolute;
+      right:-130px;
+      top:-120px;
+      width:280px;height:280px;
+      background: radial-gradient(circle, rgba(45,212,191,.20), transparent 62%);
+      transform: rotate(18deg);
+      pointer-events:none;
+    }
+
+    aside.card{
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      background: linear-gradient(180deg, rgba(11,34,48,.85), rgba(11,34,48,.62));
+      box-shadow:var(--shadow);
+      padding:16px;
+      position:sticky;
+      top:16px;
+      overflow:hidden;
+    }
+
+    .card h2{
+      margin:0 0 10px;
+      font-size:16px;
+      letter-spacing:.2px;
+    }
+
+    .toc a{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      padding:10px 10px;
+      margin:6px 0;
+      border-radius:12px;
+      border:1px solid rgba(234,246,255,.10);
+      background: rgba(255,255,255,.03);
+      color:var(--text);
+      transition: transform .15s ease, border-color .15s ease, background .15s ease;
+    }
+    .toc a:hover{
+      transform: translateY(-1px);
+      border-color: rgba(45,212,191,.35);
+      background: rgba(45,212,191,.06);
+      text-decoration:none;
+    }
+    .toc span{color:var(--muted); font-size:12px;}
+
+    section{padding:10px 4px 6px;}
+
+    h2{
+      margin:14px 0 10px;
+      font-size:20px;
+      letter-spacing:-.2px;
+    }
+    h3{
+      margin:14px 0 8px;
+      font-size:16.5px;
+      color:var(--text);
+    }
+    p{margin: 0 0 12px;}
+    ul{margin: 8px 0 14px 20px; padding:0;}
+    li{margin:6px 0; color: var(--text);}
+    .muted{color:var(--muted)}
+
+    .hr{
+      height:1px;
+      background: linear-gradient(90deg, transparent, rgba(234,246,255,.16), transparent);
+      margin:10px 0 14px;
+    }
+
+    .callout{
+      border:1px solid rgba(45,212,191,.25);
+      background: linear-gradient(180deg, rgba(45,212,191,.06), rgba(0,0,0,0));
+      border-radius: 16px;
+      padding:12px 12px;
+      margin:12px 0 16px;
+    }
+    .callout strong{color:var(--text);}
+
+    .pillrow{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin:10px 0 2px;
+    }
+    .pill{
+      padding:10px 12px;
+      border-radius: 14px;
+      border:1px solid rgba(234,246,255,.12);
+      background: rgba(255,255,255,.03);
+      color:var(--text);
+      font-weight:650;
+      font-size:13px;
+    }
+    .pill b{color:var(--primary2)}
+    .pill i{color:var(--muted); font-style:normal}
+
+    .cta{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      margin:14px 0 10px;
+      padding:14px;
+      border-radius: 18px;
+      border:1px solid rgba(96,165,250,.20);
+      background:
+        radial-gradient(400px 220px at 10% 20%, rgba(96,165,250,.14), transparent 60%),
+        radial-gradient(420px 220px at 90% 30%, rgba(45,212,191,.12), transparent 65%),
+        rgba(255,255,255,.02);
+    }
+
+    .cta .title{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight:800;
+      letter-spacing:.2px;
+    }
+    .cta .title .icon{
+      width:34px;height:34px;border-radius:12px;
+      display:grid;place-items:center;
+      border:1px solid rgba(45,212,191,.32);
+      background: rgba(45,212,191,.08);
+      box-shadow: 0 0 18px rgba(45,212,191,.12);
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:12px 14px;
+      border-radius: 14px;
+      border:1px solid rgba(45,212,191,.40);
+      background: rgba(45,212,191,.10);
+      color: var(--text);
+      font-weight:800;
+      cursor:pointer;
+      transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease, background .15s ease;
+      width: fit-content;
+      user-select:none;
+      text-decoration:none;
+    }
+    .btn:hover{
+      transform: translateY(-1px);
+      border-color: rgba(45,212,191,.62);
+      box-shadow: 0 0 26px rgba(45,212,191,.18);
+      background: rgba(45,212,191,.13);
+      text-decoration:none;
+    }
+    .btn .arrow{
+      color: var(--primary2);
+      filter: drop-shadow(0 0 12px rgba(45,212,191,.35));
+    }
+
+    .mini{font-size:12px; color:var(--muted); margin:0;}
+    footer{
+      margin-top:16px;
+      color:var(--muted);
+      font-size:13px;
+      text-align:center;
+      opacity:.95;
+    }
+
+    /* Smooth scroll */
+    html{scroll-behavior:smooth;}
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="topbar"></div>
+
+    <header class="hero" id="top">
+      <div class="hero-inner">
+        <div class="kicker">
+          <span class="badge"><span class="dot"></span> Diagnostik • Präzision • Prävention</span>
+          <span class="badge alt"><span class="dot"></span> Kompetenz • Technik • Vertrauen</span>
+        </div>
+        <h1>Moderne Radiologie als unverzichtbarer Bestandteil der heutigen Medizin</h1>
+        <p class="sub">
+          Fortschrittliche bildgebende Verfahren sind heute aus der Diagnostik nicht mehr wegzudenken.
+          Sie ermöglichen eine präzise Darstellung innerer Strukturen und bilden die Grundlage für fundierte medizinische Entscheidungen—
+          von der Früherkennung über die Abklärung bis zur Therapieplanung.
+        </p>
+
+        <div class="pillrow" aria-label="Highlights">
+          <div class="pill"><b>MRT</b> <i>ohne Röntgenstrahlung</i></div>
+          <div class="pill"><b>CT</b> <i>schnell &amp; präzise</i></div>
+          <div class="pill"><b>Digitales Röntgen</b> <i>reduzierte Dosis</i></div>
+          <div class="pill"><b>Patientenkomfort</b> <i>klar &amp; menschlich</i></div>
+        </div>
+      </div>
+    </header>
+
+    <div class="grid">
+      <main class="article">
+        <section id="einleitung">
+          <h2>Einleitung</h2>
+          <p>
+            Ein professionelles Radiologie Zentrum in Wolfsburg nimmt eine zentrale Rolle in der modernen medizinischen Versorgung ein.
+            Ob zur Früherkennung von Erkrankungen, zur Abklärung unklarer Beschwerden oder zur Therapieplanung – moderne Radiologie bietet Ärzten
+            und Patienten gleichermaßen Sicherheit und Transparenz.
+          </p>
+          <p>
+            Gerade in einer medizinisch fortschrittlichen Region wie Wolfsburg steigt der Anspruch an Qualität, Technik und Service kontinuierlich.
+            Ein modernes Radiologiezentrum verbindet innovative Diagnosetechnologien mit fachlicher Expertise und einer patientenfreundlichen Atmosphäre,
+            um eine zuverlässige und angenehme Untersuchung zu gewährleisten.
+          </p>
+
+          <div class="callout">
+            <strong>Im Fokus:</strong> Präzise Bildgebung, verständliche Kommunikation und ein Ablauf, der Vertrauen schafft.
+          </div>
+        </section>
+
+        <div class="hr"></div>
+
+        <section id="kompetenz">
+          <h2>Das Radiologie Zentrum in Wolfsburg – Kompetenz, Technik und Vertrauen</h2>
+          <p>
+            Ein Radiologie Zentrum in Wolfsburg zeichnet sich nicht nur durch moderne Geräte aus, sondern vor allem durch die Kombination aus medizinischem Know-how,
+            Erfahrung und individueller Betreuung. Die eingesetzten bildgebenden Verfahren liefern hochauflösende Bilder, die selbst kleinste Veränderungen sichtbar machen
+            und eine frühzeitige Diagnosestellung ermöglichen.
+          </p>
+          <p>
+            Dabei steht der Mensch stets im Mittelpunkt. Patienten werden verständlich aufgeklärt, auf die Untersuchung vorbereitet und während des gesamten Prozesses
+            professionell begleitet. Diese vertrauensvolle Umgebung trägt wesentlich dazu bei, Ängste abzubauen und eine reibungslose Durchführung der Untersuchungen
+            sicherzustellen.
+          </p>
+        </section>
+
+        <section id="verfahren">
+          <h2>Hochmoderne bildgebende Verfahren für präzise Diagnosen</h2>
+          <p>
+            Die technische Ausstattung eines Radiologie Zentrums in Wolfsburg entspricht modernsten medizinischen Standards.
+            Durch den Einsatz innovativer Bildgebungssysteme können Untersuchungen effizient, sicher und mit hoher diagnostischer Aussagekraft durchgeführt werden.
+          </p>
+
+          <h3>Magnetresonanztomographie (MRT)</h3>
+          <p>
+            Die Magnetresonanztomographie ermöglicht detaillierte Aufnahmen von Weichteilen, Gelenken, Organen und dem Nervensystem – ganz ohne den Einsatz von Röntgenstrahlung.
+            Sie spielt eine entscheidende Rolle bei der Abklärung orthopädischer, neurologischer und internistischer Fragestellungen.
+          </p>
+
+          <h3>Computertomographie (CT)</h3>
+          <p>
+            Die Computertomographie bietet schnelle und präzise Querschnittsbilder des Körpers und ist besonders in der Notfalldiagnostik sowie bei komplexen Fragestellungen
+            unverzichtbar. Moderne CT-Systeme sorgen dabei für eine möglichst geringe Strahlenbelastung bei gleichzeitig hoher Bildqualität.
+          </p>
+
+          <h3>Digitales Röntgen</h3>
+          <p>
+            Auch das digitale Röntgen ist weiterhin ein fester Bestandteil der radiologischen Diagnostik. Dank moderner Technik können heute aussagekräftige Aufnahmen
+            mit deutlich reduzierter Strahlendosis erstellt werden.
+          </p>
+        </section>
+
+        <!-- Single Link (engaging CTA) -->
+        <section id="cta">
+          <div class="cta" role="region" aria-label="Call to action">
+            <div class="title">
+              <span class="icon" aria-hidden="true">🏥</span>
+              <span>
+                Mehr Informationen zum <strong>Radiologie Zentrum in Wolfsburg</strong>
+              </span>
+            </div>
+            <p class="muted" style="margin:0;">
+              Wenn Sie mehr über moderne Diagnostik, Abläufe und patientenfreundliche Untersuchungen erfahren möchten, besuchen Sie die offizielle Seite:
+            </p>
+            <a class="btn" href="https://www.diagnostikzentrum-wolfsburg.de/" target="_blank" rel="noopener noreferrer">
+              Radiologie Zentrum in Wolfsburg <span class="arrow">➜</span>
+            </a>
+            <p class="mini">Hinweis: Der Link öffnet sich in einem neuen Tab.</p>
+          </div>
+        </section>
+
+        <div class="hr"></div>
+
+        <section id="praevention">
+          <h2>Radiologie als Schlüssel zur Früherkennung und Prävention</h2>
+          <p>
+            Ein wesentlicher Vorteil eines Radiologie Zentrums in Wolfsburg liegt in der Möglichkeit der frühzeitigen Erkennung von Erkrankungen.
+            Viele gesundheitliche Probleme verursachen in frühen Stadien keine oder nur unspezifische Symptome. Moderne radiologische Untersuchungen ermöglichen es,
+            Veränderungen frühzeitig sichtbar zu machen und rechtzeitig therapeutische Maßnahmen einzuleiten.
+          </p>
+          <p>
+            Insbesondere in der Krebsfrüherkennung, bei Herz-Kreislauf-Erkrankungen oder degenerativen Veränderungen des Bewegungsapparates spielt die Radiologie eine
+            entscheidende Rolle. Durch gezielte Vorsorgeuntersuchungen kann das Risiko schwerer Krankheitsverläufe deutlich reduziert werden.
+          </p>
+        </section>
+
+        <section id="komfort">
+          <h2>Patientenorientierung und Komfort im Radiologie Zentrum Wolfsburg</h2>
+          <p>
+            Neben technischer Exzellenz ist die Patientenorientierung ein zentraler Bestandteil moderner radiologischer Versorgung.
+            Ein Radiologie Zentrum in Wolfsburg legt großen Wert auf eine angenehme Untersuchungsatmosphäre, kurze Wartezeiten und transparente Kommunikation.
+          </p>
+          <p>
+            Patientinnen und Patienten werden vor jeder Untersuchung ausführlich informiert und haben die Möglichkeit, Fragen zu stellen.
+            Moderne Geräte mit offenen Designs, ruhige Abläufe und ein freundliches Umfeld tragen dazu bei, Stress und Unsicherheiten zu minimieren.
+            Besonders für Menschen mit Platzangst oder erhöhtem Untersuchungsstress ist diese einfühlsame Betreuung von großer Bedeutung.
+          </p>
+        </section>
+
+        <section id="zusammenarbeit">
+          <h2>Zusammenarbeit mit Ärzten und medizinischen Einrichtungen</h2>
+          <p>
+            Ein Radiologie Zentrum in Wolfsburg arbeitet eng mit niedergelassenen Ärzten, Fachärzten und Kliniken zusammen.
+            Diese interdisziplinäre Kooperation gewährleistet einen reibungslosen Informationsaustausch und eine optimale Weiterbehandlung der Patienten.
+          </p>
+          <p>
+            Die radiologischen Befunde werden sorgfältig ausgewertet und zeitnah zur Verfügung gestellt, sodass behandelnde Ärzte schnell fundierte Entscheidungen
+            treffen können. Diese enge Zusammenarbeit verbessert nicht nur die Behandlungsqualität, sondern erhöht auch die Effizienz im gesamten medizinischen
+            Versorgungsprozess.
+          </p>
+        </section>
+
+        <section id="qualitaet">
+          <h2>Qualität, Sicherheit und medizinische Verantwortung</h2>
+          <p>
+            Qualitätssicherung spielt in der Radiologie eine entscheidende Rolle. Moderne Radiologiezentren in Wolfsburg unterliegen strengen gesetzlichen Vorgaben
+            und internen Qualitätsstandards. Regelmäßige Wartungen der Geräte, kontinuierliche Fortbildungen des Fachpersonals und strukturierte Abläufe sorgen für
+            ein hohes Maß an Sicherheit und Zuverlässigkeit.
+          </p>
+          <p>
+            Der verantwortungsvolle Umgang mit Strahlenbelastung hat dabei oberste Priorität. Durch den Einsatz moderner Technologien und optimierter Untersuchungsprotokolle
+            wird die Belastung für Patienten auf ein notwendiges Minimum reduziert.
+          </p>
+        </section>
+
+        <section id="warum">
+          <h2>Warum ein Radiologie Zentrum in Wolfsburg die richtige Wahl ist</h2>
+          <p>
+            Ein Radiologie Zentrum in Wolfsburg vereint medizinische Präzision, modernste Technik und menschliche Nähe.
+            Patienten profitieren von zuverlässigen Diagnosen, individuellen Betreuungskonzepten und einem hohen Qualitätsanspruch.
+            Die Kombination aus Erfahrung, Innovation und Patientenorientierung macht ein spezialisiertes Radiologiezentrum zu einem unverzichtbaren Bestandteil
+            der regionalen Gesundheitsversorgung.
+          </p>
+        </section>
+
+        <section id="fazit">
+          <h2>Fazit</h2>
+          <p>
+            Die Radiologie ist ein entscheidender Baustein moderner Medizin. Ein professionelles Radiologie Zentrum in Wolfsburg bietet nicht nur hochmoderne Diagnostik,
+            sondern auch Sicherheit, Vertrauen und individuelle Betreuung. Durch präzise Bildgebung, erfahrene Fachärzte und eine patientenfreundliche Umgebung wird eine
+            zuverlässige medizinische Versorgung gewährleistet.
+          </p>
+          <p>
+            Wer Wert auf Qualität, Genauigkeit und moderne medizinische Standards legt, findet im Radiologie Zentrum in Wolfsburg einen kompetenten Partner für Diagnostik,
+            Vorsorge und medizinische Klarheit.
+          </p>
+        </section>
+
+        <footer>
+          <div class="hr"></div>
+          <div>© <span id="year"></span> • Moderne Radiologie • Wolfsburg</div>
+        </footer>
+
+        <script>
+          document.getElementById("year").textContent = new Date().getFullYear();
+        </script>
+      </main>
+
+      <aside class="card" aria-label="Inhaltsverzeichnis">
+        <h2>Inhaltsverzeichnis</h2>
+        <nav class="toc">
+          <a href="#einleitung">Einleitung <span>01</span></a>
+          <a href="#kompetenz">Kompetenz &amp; Vertrauen <span>02</span></a>
+          <a href="#verfahren">Bildgebende Verfahren <span>03</span></a>
+          <a href="#praevention">Früherkennung <span>04</span></a>
+          <a href="#komfort">Patientenkomfort <span>05</span></a>
+          <a href="#zusammenarbeit">Zusammenarbeit <span>06</span></a>
+          <a href="#qualitaet">Qualität &amp; Sicherheit <span>07</span></a>
+          <a href="#warum">Warum Wolfsburg <span>08</span></a>
+          <a href="#fazit">Fazit <span>09</span></a>
+          <a href="#top">Nach oben <span>↥</span></a>
+        </nav>
+        <div class="hr"></div>
+        <p class="mini">
+          Design: medizinisch, modern, vertrauenswürdig. Optimiert für mobile Geräte.
+        </p>
+      </aside>
+    </div>
+  </div>
+</body>
+</html>
